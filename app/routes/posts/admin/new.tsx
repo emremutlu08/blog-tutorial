@@ -1,8 +1,6 @@
-import type { ActionFunction} from "@remix-run/node";
-import { json } from "@remix-run/node";
+import type { ActionFunction } from "@remix-run/node";
+import { json, redirect } from "@remix-run/node";
 import invariant from "tiny-invariant";
-
-import { redirect } from "@remix-run/node";
 import { Form, useActionData, useTransition } from "@remix-run/react";
 
 import { createPost } from "~/models/post.server";
@@ -45,7 +43,7 @@ export const action: ActionFunction = async ({ request }) => {
 
 const inputClassName = `w-full rounded border border-gray-500 px-2 py-1 text-lg`;
 
-export default function NewPost() {
+export default function NewPost(): JSX.Element {
   const errors = useActionData();
 
   const transition = useTransition();
